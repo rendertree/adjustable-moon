@@ -25,11 +25,11 @@ from car import *
 
 class Moon(object):
     def __init__(self):
-        self.pos            = Vector3(-150, 0, 0)
-        self.moon_size      = 4.0
-        self.orbit_radius   = 180
-        self.time           = 0.0
-        self.max_time       = 1000
+        self.pos          = Vector3(-150, 0, 0)
+        self.size         = 4.0
+        self.orbit_radius = 180
+        self.time         = 0.0
+        self.max_time     = 1000
 
     def update(self, speed, size, is_reverse):
         frame_time = get_frame_time()
@@ -45,11 +45,11 @@ class Moon(object):
         dy = self.orbit_radius * cos(speed * self.time)  # Move up and down
         dz = self.orbit_radius * sin(speed * self.time) + 160.0  # Orbit around z-axis
 
-        self.moon_size = size
+        self.size = size
         self.pos = Vector3(self.pos.x, dy, dz)
     
     def draw(self):
-        draw_sphere(self.pos, self.moon_size, WHITE)
+        draw_sphere(self.pos, self.size, WHITE)
 
 class ProSlider():
     def __init__(self, bounds, value_ref, min_value, max_value, slider_width):
